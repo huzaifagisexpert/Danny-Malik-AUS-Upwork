@@ -1,0 +1,8 @@
+streamlit
+folium
+streamlit-folium
+pgeocode
+geopy
+pandas
+openpyxl
+streamlit-option-menu
