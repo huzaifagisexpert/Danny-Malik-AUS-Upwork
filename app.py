@@ -16,12 +16,10 @@ cola, colb = st.columns([1, 15])
 
      
 with cola:
-        st.image("images.png", width=100)  
+        st.image("images.png", width=120)  
 
 with colb:
         st.title("Spatial Proximity Calculator")
-        st.write("")
-        st.write("")
         st.write("")
         st.write("")
         st.write("")
@@ -167,5 +165,6 @@ hide_st_style = """
             </style>
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
+
 
 
