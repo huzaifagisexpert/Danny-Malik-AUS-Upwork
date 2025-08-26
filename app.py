@@ -89,8 +89,6 @@ with col1:
             result_df = process_file(uploaded_file, user_radii)
 
             st.subheader("Download Processed CSV file")
-            st.dataframe(result_df.head(10))
-
             # Convert DataFrame to CSV for download
             output = io.StringIO()
           
@@ -100,7 +98,8 @@ with col1:
                 file_name="Updated CSV with x/y and radius marked.csv",
                 mime="text/csv"
             )
-           result_df.to_csv(output, index=False)
+            st.dataframe(result_df.head(10))
+            result_df.to_csv(output, index=False)
         except Exception as e:
             st.error(f"⚠️ Error: {e}")
 
@@ -165,6 +164,7 @@ hide_st_style = """
             </style>
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
+
 
 
 
