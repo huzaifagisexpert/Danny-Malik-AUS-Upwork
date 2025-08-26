@@ -93,14 +93,14 @@ with col1:
 
             # Convert DataFrame to CSV for download
             output = io.StringIO()
-            result_df.to_csv(output, index=False)
+          
             st.download_button(
                 label="📥 Download Processed CSV file",
                 data=output.getvalue(),
                 file_name="Updated CSV with x/y and radius marked.csv",
                 mime="text/csv"
             )
-
+           result_df.to_csv(output, index=False)
         except Exception as e:
             st.error(f"⚠️ Error: {e}")
 
@@ -165,6 +165,7 @@ hide_st_style = """
             </style>
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
+
 
 
 
