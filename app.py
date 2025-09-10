@@ -45,8 +45,8 @@ with col1:
             df = pd.read_csv(uploaded_file, encoding='latin1')
 
         # Detect Easting/Northing columns
-        easting_col = find_column(df, ["Easting", "east", "X"])
-        northing_col = find_column(df, ["Northing", "north", "Y"])
+        easting_col = find_column(df, ["Easting", "east", "X","job_easting"])
+        northing_col = find_column(df, ["Northing", "north", "Y","job_northing"])
 
         # Convert Easting/Northing → Lat/Lon (X, Y)
         transformer = Transformer.from_crs("EPSG:7856", "EPSG:4326", always_xy=True)
@@ -170,6 +170,7 @@ hide_st_style = """
             </style>
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
+
 
 
 
