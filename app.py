@@ -37,7 +37,12 @@ with col1:
 
     # ---- Main Processing Function ----
     def process_file(uploaded_file, radii):
-        df = pd.read_csv(uploaded_file)
+         
+        try:
+            df = pd.read_csv(uploaded_file)
+        except UnicodeDecodeError:
+            uploaded_file.seek(0)
+            df = pd.read_csv(uploaded_file, encoding='latin1')
 
         # Detect Easting/Northing columns
         easting_col = find_column(df, ["Easting", "east", "X"])
@@ -165,6 +170,7 @@ hide_st_style = """
             </style>
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
+
 
 
 
