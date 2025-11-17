@@ -202,8 +202,8 @@ with col3:
                 df = read_csv_safe(file)
 
                 # Detect Easting/Northing cols
-                easting_col = find_column(df, ["Easting", "east", "X", "job_easting"])
-                northing_col = find_column(df, ["Northing", "north", "Y", "job_northing"])
+                easting_col = find_column(df, ["Easting", "east", "X", "job_easting","latitude","Lat"])
+                northing_col = find_column(df, ["Northing", "north", "Y", "job_northing","longitude","lon","Long"])
 
                 # Drop rows with invalid coords
                 df = df[(df[easting_col] != 0) & (df[northing_col] != 0)]
